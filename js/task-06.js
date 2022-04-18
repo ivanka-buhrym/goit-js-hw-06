@@ -10,10 +10,12 @@ inputValidation.addEventListener('blur', validation)
 console.log(typeof inputLength)
 function validation (){
 
-if (inputLength > inputValidation.value.length){
-    inputValidation.classList.toggle("invalid")
+if (inputLength === inputValidation.value.length){
+    inputValidation.classList.remove("invalid")
+    inputValidation.classList.add("valid")
 } else {
-    inputValidation.classList.toggle("valid");
+    inputValidation.classList.remove("valid")
+    inputValidation.classList.add("invalid");
     }
 }
 
