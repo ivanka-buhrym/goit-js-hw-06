@@ -17,21 +17,16 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-
-
-const imagesList = images.map(image => {
-
-    const imageElem = document.createElement('img')
-    imageElem.src = image.url;
-    imageElem.alt = image.alt;
-    imageElem.width = "260";
-    imageElem.height = "160";
-    const imagesItem = document.createElement('li')
-    imagesItem.classList.add('images__item')
-    imagesItem.appendChild(imageElem)
-    return imagesItem
-}
-)
+const imageElem = ({url, alt}) => {
+    return `
+      <li class="images__item">
+      <img 
+          src=${url} 
+          alt=${alt} 
+          width="260" 
+          height="160"/>
+      </li>` 
+};
 const imagesEl = document.querySelector('.gallery')
-imagesEl.append(...imagesList)
-console.log(imagesEl)
+const imagesList = images.map(imageElem);
+imagesEl.insertAdjacentHTML('afterbegin', imagesList)
