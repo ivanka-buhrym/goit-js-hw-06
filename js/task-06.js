@@ -5,22 +5,18 @@
 const inputValidation = document.querySelector('#validation-input');
 
 const inputLength = Number(inputValidation.dataset.length);
-inputValidation.addEventListener('blur', validation)
-
-console.log(typeof inputLength)
+inputValidation.addEventListener('blur', validation);
 function validation (){
-
 if (inputLength === inputValidation.value.length){
-    inputValidation.classList.remove("invalid")
-    inputValidation.classList.add("valid")
+    changeClass('valid', 'invalid');
 } else {
-    inputValidation.classList.remove("valid")
-    inputValidation.classList.add("invalid");
+    changeClass('invalid', 'valid');
     }
-}
-
-
-
+};
+function changeClass (add, remove){
+    inputValidation.classList.add(add);
+    inputValidation.classList.remove(remove)
+};
 
 
 
